@@ -40,13 +40,15 @@ public class SubmoduleOption extends GitSCMExtension {
     private boolean recursiveSubmodules;
     private boolean trackingSubmodules;
     private Integer timeout;
+    private boolean useCredentials;
 
     @DataBoundConstructor
-    public SubmoduleOption(boolean disableSubmodules, boolean recursiveSubmodules, boolean trackingSubmodules, Integer timeout) {
+    public SubmoduleOption(boolean disableSubmodules, boolean recursiveSubmodules, boolean trackingSubmodules, Integer timeout, boolean useCredentials) {
         this.disableSubmodules = disableSubmodules;
         this.recursiveSubmodules = recursiveSubmodules;
         this.trackingSubmodules = trackingSubmodules;
         this.timeout = timeout;
+        this.useCredentials = useCredentials;
     }
 
     public boolean isDisableSubmodules() {
@@ -63,6 +65,10 @@ public class SubmoduleOption extends GitSCMExtension {
 
     public Integer getTimeout() {
         return timeout;
+    }
+
+    public boolean useCredentials() {
+        return useCredentials();
     }
 
     @Override
@@ -84,6 +90,7 @@ public class SubmoduleOption extends GitSCMExtension {
                 .recursive(recursiveSubmodules)
                 .remoteTracking(trackingSubmodules)
                 .timeout(timeout)
+                .useCredentials(useCredentials)
                 .execute();
         }
 

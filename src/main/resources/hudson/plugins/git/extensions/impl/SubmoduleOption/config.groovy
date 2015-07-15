@@ -14,6 +14,9 @@ f.entry(title:_("Update tracking submodules to tip of branch"), field:"trackingS
 f.entry(title:_("Timeout (in minutes) for submodules operations"), field:"timeout") {
     f.textbox()
 }
+f.entry(title:_("Provide git credentials for submodule operations (currently only for ssh submodules)"), field:"useCredentials") {
+    f.checkbox()
+}
 
 /*
   This needs more thought
